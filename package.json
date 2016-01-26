@@ -1,0 +1,18 @@
+{
+  "name": "language-antescofo",
+  "main": "./lib/language-antescofo",
+  "version": "0.0.0",
+  "description": "Syntax highlighting and interaction with language-antescofo and ascograph",
+  "keywords": [
+  ],
+  "activationCommands": {
+    "atom-workspace": "language-antescofo:toggle"
+  },
+  "repository": "https://github.com/atom/language-antescofo",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

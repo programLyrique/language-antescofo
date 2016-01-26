@@ -1,0 +1,50 @@
+#See also http://blog.gaku.net/create-a-custom-syntax-highlighting-with-atom-editor/
+'fileTypes': [
+  '.asco'
+  '.asco.txt'
+  '.score.txt'
+]
+'name': 'Antescofo'
+'scopeName': 'source.antescofo'
+
+'patterns': [
+  {
+    'include': '#line_comments'
+  }
+
+  {
+    'match': '<\\=|>\\=|\\=\\=|<|>|\\!\\='
+    'name': 'keyword.operator.comparison.antescofo'
+  }
+  {
+    'match': '\\:\\='
+    'name': 'keyword.operator.assignment.antescofo'
+  }
+]
+
+'repository':
+  'strings':
+    'patterns': [
+      {
+        'include': '#string_quoted_double'
+      }
+      # {
+      #   'include': '#string_quoted_single'
+      # }
+    ]
+  'line_comments':
+      'begin': '(^[ \\t]+)?(?=;)'
+      'beginCaptures':
+        '1':
+          'name': 'punctuation.whitespace.comment.leading.antescofo'
+      'end': '(?!\\G)'
+      'patterns': [
+        {
+          'begin': ';'
+          'beginCaptures':
+            '0':
+              'name': 'punctuation.definition.comment.antescofo'
+          'end': '\\n'
+          'name': 'comment.line.number-sign.antescofo'
+        }
+      ]

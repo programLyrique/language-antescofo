@@ -4,4 +4,6 @@ Antescofo~ is a modular polyphonic Score Following system as well as a Synchrono
 
 This package provides syntax highlighting and makes it possible to interact with Antescofo and the visual editor Ascograph.
 
-![A screenshot of your package](https://f.cloud.github.com/assets/69169/2290250/c35d867a-a017-11e3-86be-cd7c5bf3ff9b.gif)
+(no grammar effective yet)
+
+![A screenshot of your theme](https://f.cloud.github.com/assets/69169/2289498/4c3cb0ec-a009-11e3-8dbd-077ee11741e5.gif)

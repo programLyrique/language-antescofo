@@ -1,8 +1,143 @@
-// The ui-variables file is provided by base themes provided by Atom.
-//
-// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
-// for a full listing of what's available.
-@import "ui-variables";
+@import "colors";
+@import "syntax-variables";
 
-.language-antescofo {
+//number
+//meta.number.antescofo
+//constant.numeric.float.antescofo
+//constant.numeric.integer.antescofo
+
+//events
+//meta.event.antescofo
+//keyword.control.event.antescofo
+// (suiteevent)
+//meta.event.suite.antescofo
+//keyword.control.event.attribute.antescofo
+//variable.other.literal.event.antescofo
+//constant.character.event.antescofo
+//entity.name.tag.event.antescofo
+
+//actions
+//meta.action.actionsequence.antescofo
+//meta.action.antescofo
+// (attribute)
+//keyword.control.action.attribute.antescofo
+//keyword.operator.antescofo
+//keyword.operator.builtin.antescofo
+//string.quoted.double.interpol.antescofo
+//string.quoted.double.antescofo
+//support.constant.antescofo
+//
+// (keywords)
+//support.constant.action.antescofo
+//
+// (arguments)
+//meta.argument.antescofo
+//variable.parameter.antescofo
+//
+
+
+//Keywords (atomics)
+//meta.atomic.antescofo
+//keyword.control.antescofo
+//support.variable.antescofo
+//punctuation.antescofo
+//support.type.decorator.antescofo
+//support.function.builtin.antescofo
+//support.type.antescofo
+//support.function.builtin.antescofo
+//keyword.operator.word.antescofo
+//keyword.operator.antescofo
+//
+//keyword.control.global.antescofo
+//keyword.control.insert.antescofo
+//
+
+//declaration
+//meta.declaration.function.antescofo
+//keyword.control.declaration.antescofo
+//variable.other.function.antescofo
+//
+//meta.declaration.macro.antescofo
+//variable.other.name.macro.antescofo
+//
+//meta.declaration.process.antescofo
+//variable.other.name.namespace.antescofo
+//
+//meta.declaration.method.antescofo
+//variable.other.method.antescofo
+//
+//meta.declaration.object.antescofo
+//variable.other.object.antescofo
+//
+//meta.declaration.pattern.antescofo
+//variable.other.pattern.antescofo
+//
+//meta.declaration.track.antescofo
+//variable.other.track.antescofo
+//
+//meta.declaration.eval.antescofo
+//support.function.antescofo
+//
+//support.function.antescofo
+//
+
+//comments and other
+//meta.wh.antescofo
+//entity.other.wh.antescofo
+//comment.line.wh.antescofo
+//invalid.illegal.wh.antescofo
+
+//name
+//meta.name.antescofo
+//entity.name.function.name.antescofo
+//entity.name.namespace.name.antescofo
+//support.function.builtin.name.antescofo
+//support.function.builtin.name.antescofo
+//constant.other.pseudo.name.antescofo
+//entity.name.class.name.antescofo
+//variable.other.name.antescofo
+
+
+//.punctuation {
+//  &.definition {
+//    &.comment {
+//      color: @light-gray;
+//    }
+//  }
+//}
+//.comment {
+//  &.line{
+//      color: @blue;
+//    }
+//}
+
+  //events
+.antescofo .event .constant
+{
+  &.numeric {
+    color:@green;
+  }
+}
+
+.antescofo .event .keyword
+{
+  color:@green;
+}
+
+  //actions
+.antescofo .action .constant
+{
+  &.numeric {
+    color:@blue;
+  }
+}
+
+.antescofo .action .keyword
+{
+  color:@blue;
+}
+
+.antescofo .action .support
+{
+  color:@blue;
 }

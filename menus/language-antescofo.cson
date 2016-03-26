@@ -1,1 +1,58 @@
 # See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Antescofo Evaluate'
+      'command': 'antescofo:oscsend'
+    },
+
+    {
+      'label': 'Antescofo Load current file'
+      'command': "antescofo:Loadantescofo"
+    },
+  ]
+
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'Antescofo'
+      'submenu': [
+
+        {
+          'label': 'Start'
+          'command': "antescofo:startantescofo"
+        },
+
+
+        {
+          'label': 'Evaluate'
+          'command': "antescofo:oscsend"
+        },
+
+        {
+          'label': 'Startfromlabel'
+          'command': "antescofo:startfromlabel"
+        },
+
+        {
+          'label': 'Stop'
+          'command': "antescofo:stoptantescofo"
+        },
+
+        {
+          'label': 'Load current file'
+          'command': "antescofo:Loadantescofo"
+        },
+
+
+
+      ]
+    ]
+
+
+  }
+
+
+]

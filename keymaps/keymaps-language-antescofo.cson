@@ -1,0 +1,6 @@
+'atom-workspace':
+  'alt-s': 'startantescofo'
+  'alt-p': 'oscsend'
+  'alt-shift-s': 'startfromlabel'
+  'alt-c': 'stoptantescofo'
+  'alt-l': 'Loadantescofo'

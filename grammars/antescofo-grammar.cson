@@ -1,0 +1,631 @@
+'scopeName': 'source.antescofo'
+'name': 'Antescofo'
+'fileTypes' : ['antescofo', 'antesc']
+'repository': {
+    'float': {
+      'comment': 'A Float for Antescofo'
+      'name': 'constant.numeric.float.antescofo'
+      'match': '\\d+[\\.]\\d*\\b|\\d+(\\s*)[/](\\s*)\\d+\\b|\\.\\d+\\b|((\\d+\\.\\d*)|(\\.\\d+))\\b'
+    };
+    'integer': {
+      'comment': 'An Integer for Antescofo'
+      'name': 'constant.numeric.integer.antescofo'
+      'match': '\\d+\\b|[eE]([+-]?)\\d+\\b'
+    };
+    'number':{
+      'name':'meta.number.antescofo'
+      'comment': 'Antescofo numbers'
+      'patterns': [
+        {
+          'include': '#float'
+        }
+        {
+          'include': '#integer'
+        }
+      ]
+    };
+    'eventattribute': {
+      'comment': 'event s Attributes'
+      'name': 'keyword.control.event.attribute.antescofo'
+      'match': '\\s+(@fermata|@hook|@inlet|@pizz|@staccato|bpm|fermata|hook|jump|pizz|@jump|pizzsection|rubato|staccato|transpose|variance)\\b'
+    };
+    'namefunction': {
+      'comment': 'A function Name'
+      'name': 'entity.name.function.name.antescofo'
+      'match': '\\s+@[a-zA-Z0-9_]+\\b'
+    };
+    'nameobjectpatternnamespace': {
+      'comment': 'A NameSpace (an object, a pattern or a namespace)'
+      'name': 'entity.name.namespace.name.antescofo'
+      'match': '\\b(obj::[a-zA-Z0-9_]+|pattern::[a-zA-Z0-9_]+|\:\:[a-zA-Z0-9_]+)\\b'
+    };
+    'nameantescofoboolean': {
+      'comment': 'A built in (antescofo internal command or a boolean value)'
+      'name': 'support.function.builtin.name.antescofo'
+      'match': '\\b(antescofo::[a-zA-Z0-9_]+|(true|false))\\b'
+    };
+    'nametrackfaustdsp': {
+      'comment': 'A DSL, a faust or a track command (handled as constants)'
+      'name': 'support.function.builtin.name.antescofo'
+      'match': '\\b(track::[a-zA-Z0-9_]+|faust::[a-zA-Z0-9_]+|dsp::[a-zA-Z0-9_]+)\\b'
+    };
+    'namedots':{
+      'comment': 'pseudo'
+      'name': 'constant.other.pseudo.name.antescofo'
+      'match': '\\.\\.\\.'
+    };
+    'nameantescofoclass':{
+      'comment': 'a class'
+      'name': 'entity.name.class.name.antescofo'
+      'match': '\\b([a-zA-Z\\#][a-zA-Z0-9\\#\\/~?!_$><.-]*|[\\u2080-\\u2089]+)\\b'
+    };
+    'nameantescofovariable':{
+      'comment': 'A generic name (variables)'
+      'name': 'variable.other.name.antescofo'
+      'match': '\\s+\\$[a-zA-Z0-9_]+\\b'
+    };
+    'name':{
+      'name': 'meta.name.antescofo'
+      'comment': 'Antescofo rule name'
+      'patterns': [
+        {
+          'include': '#eventattribute'
+        }
+        {
+          'include': '#functionname'
+        }
+        {
+          'include': '#nameobjectpatternnamespace'
+        }
+        {
+          'include': '#nameantescofoboolean'
+        }
+        {
+          'include': '#nametrackfaustdsp'
+        }
+        {
+          'include': '#namedots'
+        }
+        {
+          'include': '#nameantescofoclass'
+        }
+        {
+          'include': '#nameantescofovariable'
+        }
+      ]
+    };
+    'suiteeventinclude':{
+      'comment': 'A suite of events (include)'
+      'patterns': [
+        {
+          'include': '#eventattribute'
+        }
+        {
+          'include': '#name'
+        }
+      ]
+    };
+    'suiteeventliteral':{
+      'comment': 'A suite of events (literal)'
+      'name': 'variable.other.literal.event.antescofo'
+      'match': '([abcdefgABCDEFG](([xb#]([xb#]?))?)([+-]?\\d+)?)|(\\d+[.]\\d*)|((\\d+)([ \\t]*)[/]([ \\t]*)(\\d+))|\\d+'
+    };
+    'suiteeventpunctuation':{
+      'comment': 'A suite of events (punctuation)'
+      'name': 'constant.character.event.antescofo'
+      'match': '\\->|[(),-]'
+    };
+    'suiteevententity':{
+      'comment': 'A suite of events (entity)'
+      'name': 'entity.name.tag.event.antescofo'
+      'match': '[a-zA-Z_\\#\\"][a-zA-Z0-9\\#\\/~?!_$><.-]*[\\"]?'
+    };
+    'suitevent':{
+    'name':'meta.event.suite.antescofo'
+    'comment': 'Antescofo rule suitevent'
+    'patterns': [
+        {
+          'include': '#number'
+        }
+        {
+          'include': '#whitespace'
+        }
+        {
+          'include': '#suiteeventinclude'
+        }
+        {
+          'include': '#suiteeventliteral'
+        }
+        {
+          'include': '#suiteeventpunctuation'
+        }
+        {
+          'include': '#suiteevententity'
+        }
+      ]
+    };
+    'whantescofoother': {
+      'comment': 'Antescofo others'
+      'name': 'entity.other.wh.antescofo'
+      'match': '[\\…]|([*][*][a-zA-Z0-9\\#\\/~!_$.-]+[*][*])'
+    };
+    'whcommentline': {
+      'comment': 'Antescofo comment-line'
+      'name': 'comment.line.wh.antescofo'
+      'match': '//(\\n|(.*[^\\\\]\\n))|;.*\\n'
+    };
+    'whcommentmultiple': {
+      'comment': 'Antescofo comment-multi-lines'
+      'name': 'comment.line.wh.antescofo'
+      'match': '/(\\\\\\n)?[*](.|\\n)*[*](\\\\\\n)?/'
+    };
+    'whcommenterror': {
+      'comment': 'Antescofo comment-multi-lines (error)'
+      'name': 'invalid.illegal.wh.antescofo'
+      'match': '/\\*/'
+    };
+    'whitespace':{
+    'name':'meta.wh.antescofo'
+    'comment': 'Antescofo rule name'
+    'patterns': [
+        {
+          'include': '#whantescofoother'
+        }
+        {
+          'include': '#whcommentline'
+        }
+        {
+          'include': '#whcommentmultiple'
+        }
+        {
+          'include': '#whcommenterror'
+        }
+      ]
+    };
+    'attributes': {
+      'comment': 'Antescofo attributes'
+      'name': 'keyword.control.action.attribute.antescofo'
+      'match': '\\s+(@abort|@action|@ante|@coef|@conservative|@exclusive|@grain|@guard|@immediate|@kill|@label|@latency|@loose|@name|@norec|@post|@progressive|@refractory|@staticscope|@sync|@target|@tempo|@tempovar|@tight|@type)\\b'
+      'patterns': [
+          {
+            'include': '#number'
+          }
+          {
+            'include': '#attributesoperator'
+          }
+        ]
+    };
+    'attributesoperator':{
+      'comment': 'Operators'
+      'name': 'keyword.operator.antescofo'
+      'match': '_?[ \\t]*:=|=|,\\[\\]'
+    };
+    'atomicbuiltin':{
+      'comment': 'Antescofo atomic (builtin)'
+      'name': 'keyword.operator.builtin.antescofo'
+      'match': '\\s+(@\\!\\=|@\\=\\=|@\\&\\&|@\\|\\\||@\\\+|@\\/|@\\%|@\\\*|@\\>|@\\>\\=|@\\<|@\\<\\=)\\b'
+    };
+    'atomicinterpolation': {
+      'comment': 'Antescofo interpolation values'
+      'name': 'string.quoted.double.interpol.antescofo'
+      'match': '\\s+("linear"|"linear_in"|"linear_out"|"linear_in_out"|"back"|"back_in"|"back_out"|"back_in_out"|"bounce"|"bounce_in"|"bounce_out"|"bounce_in_out"|"cubic"|"cubic_in"|"cubic_out"|"cubic_in_out"|"circ"|"circ_in"|"circ_out"|"circ_in_out"|"elastic"|"elastic_in"|"elastic_out"|"elastic_in_out"|"exp"|"exp_in"|"exp_out"|"exp_in_out"|"quad"|"quad_in"|"quad_out"|"quad_in_out"|"quart"|"quart_in"|"quart_out"|"quart_in_out"|"quint"|"quint_in"|"quint_out"|"quint_in_out"|"sine"|"sine_in"|"sine_out"|"sine_in_out"|"poly3")\\b'
+    };
+    'atomicstring': {
+      'comment': 'An Antescofo string'
+      'name':'string.quoted.double.antescofo'
+      'begin':'"'
+      'end':'"'
+      'patterns': [
+          {
+            'include': '#atomicstring'
+          }
+        ]
+    };
+    'atomicid':{
+      'comment': 'Antescofo keywords pseudo'
+      'name': 'support.constant.antescofo'
+      'match': '\\s+(@UID|@LID)\\b'
+    };
+    'atomicinclude':{
+      'patterns': [
+          {
+            'include': '#attributesoperator'
+          }
+          {
+            'include': '#attributes'
+          }
+          {
+            'include': '#action'
+          }
+          {
+            'include': '#name'
+          }
+        ]
+    };
+    'atomicreserved': {
+      'comment': 'Antescofo keywords reserved'
+      'name': 'keyword.control.antescofo'
+      'match': '\\s+(@assert|abort|action|and|at|before|bind|case|closefile|curve|do|dummysilence|during|else|expr|forall|gfwd|group|if|imap|in|kill|let|lfwd|loop|map|napro_trace|nim|noevent|of|off|on|openoutfile|oscoff|oscon|oscrecv|oscsend|parfor|patch|port|return|start|state|event|note|stop|switch|symb|tab|tempo|until|value|whenever|where|while|with)\\b'
+    };
+    'atomicvariable': {
+      'comment': 'Antescofo variable reserved'
+      'name': 'support.variable.antescofo'
+      'match': '\\s+(\\$RT_TEMPO|\\$SCORE_TEMPO|\\$PITCH|\\$DURATION|\\$BEAT_POS|\\$LAST_EVENT_LABEL|\\$NOW|\\$RNOW|\\$RCNOW|\\$APPROX_RATIO|\\$ENERGY|\\$JUMP_UPDATED|\\$FIRST_DETECTED_EVENT|\\$THISOBJ|\\$MYSELF)\\b'
+    };
+    'atomicpunctuation': {
+      'comment': 'Antescofo atomic punctuation'
+      'name': 'punctuation.antescofo'
+      'match': '\\,|\\.'
+    };
+    'atomicdecorator': {
+      'comment': 'Antescofo decorator'
+      'name': 'support.type.decorator.antescofo'
+      'match': '(s|(ms))\\b|\\#'
+    };
+    'atomicfunction':{
+      'comment': 'Antescofo functions'
+      'name': 'support.function.builtin.antescofo'
+      'match': '\\s+(@assert|@command|@date|@dump|@history_length|@is_undef|@map_history|@map_history_date|@map_history_rdate|@plot|@rdate|@rplot|@tab_history|@tab_history_date|@tab_history_rdate)\\b'
+    };
+    'atomictype':{
+      'comment': 'Antescofo types'
+      'name': 'support.type.antescofo'
+      'match': '\\s+(nim|tap|map)\\b'
+    };
+    'atomicfunctionname':{
+      'comment': 'Antescofo functions names'
+      'name': 'support.function.builtin.antescofo'
+      'match': '\\s+(@Tracing|@UnTracing|@abs|@acos|@add_pair|@aggregate|@align_breakpoints|@approx|@arch_darwin|@arch_linux|@arch_windows|@asin|@at|@atan|@between|@bounded_integrate|@bounded_integrate_inv|@car|@cdr|@ceil|@clear|@compose_map|@concat|@cons|@copy|@cos|@cosh|@count|@dim|@domain|@drop|@dump|@dumpvar|@empty|@exp|@explode|@filter_max_t|@filter_median_t|@filter_min_t|@find|@flatten|@floor|@gnuplot|@gshift_map|@integrate|@iota|@is_bool|@is_defined|@is_exec|@is_fct|@is_float|@is_function|@is_int|@is_integer_indexed|@is_interpolatedmap|@is_list|@is_map|@is_nim|@is_numeric|@is_obj|@is_prefix|@is_proc|@is_string|@is_subsequence|@is_suffix|@is_symbol|@is_tab|@is_undef|@is_vector|@lace|@last|@linearize|@listify|@loadvalue|@loadvar|@log|@log10|@log2|@make_duration_map|@make_label_bpm|@make_label_duration|@make_label_pitches|@make_label_pos|@make_score_map|@map|@map_compose\
+      |@map_concat|@map_normalize|@map_reverse|@map_val|@mapval|@max|@max_key|@max_val|@member|@merge|@min|@min_key|@min_val|@normalise|@normalize|@occurs|@permute|@pow|@projection|@push_back|@push_front|@rand|@rand_int|@random|@range|@reduce|@remove|@remove_duplicate|@replace|@reshape|@resize|@reverse|@rnd_bernoulli|@rnd_binomial|@rnd_exponential|@rnd_gamma|@rnd_geometric|@rnd_normal|@rnd_poisson|@rnd_uniform_float|@rnd_uniform_int|@rotate|@round|@sample|@savevalue|@scan|@scramble|@select_map|@shape|@shift_map|@simplify_lang_v|@simplify_radial_distance_t|@simplify_radial_distance_v|@sin|@sinh|@size|@slice|@sort|@sputter|@sqrt|@string2fun|@string2proc|@stutter|@system|@take|@tan|@window_filter_t)\\b'
+    };
+    'atomicoperatorword':{
+      'comment': 'Antescofo operator on words'
+      'name': 'keyword.operator.word.antescofo'
+      'match': '==>|\\+=>|\\:\\:'
+    };
+    'atomicoperator':{
+      'comment': 'Antescofo operator'
+      'name': 'keyword.operator.antescofo'
+      'match': '[_]?[ \t]*\\:=|==|[~!%^&*+=|?:<>/-]'
+    };
+    'atomic':{
+      'name':'meta.atomic.antescofo'
+      'patterns': [
+          {
+            'include': '#atomicbuiltin'
+          }
+          {
+            'include': '#atomicinterpolation'
+          }
+          {
+            'include': '#atomicstring'
+          }
+          {
+            'include': '#atomicid'
+          }
+          {
+            'include': '#atomicinclude'
+          }
+          {
+            'include': '#atomicreserved'
+          }
+          {
+            'include': '#atomicvariable'
+          }
+          {
+            'include': '#atomicpunctuation'
+          }
+          {
+            'include': '#atomicdecorator'
+          }
+          {
+            'include': '#atomicfunction'
+          }
+          {
+            'include': '#atomictype'
+          }
+          {
+            'include': '#atomicfunctionname'
+          }
+          {
+            'include': '#atomicoperatorword'
+          }
+          {
+            'include': '#atomicoperator'
+          }
+        ]
+    };
+    'actioninclude':{
+      'patterns': [
+          {
+            'include': '#number'
+          }
+          {
+            'include': '#whitespace'
+          }
+          {
+            'include': '#atomic'
+          }
+          {
+            'include': '#actionstartend'
+          }
+        ]
+    };
+    'actionstartend': {
+      'name': 'meta.action.actionsequence.antescofo'
+      'comment': 'Action sequence'
+      'begin': '[{\\[\\(]'
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.antescofo'
+      'end': '[}\\]\\)]'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.antescofo'
+      'patterns': [
+        {
+          'include': '#action'
+        }
+      ]
+    }
+    'actionkeyword':{
+      'comment': 'Action keywords'
+      'name': 'support.constant.action.antescofo'
+      'match': '\\s+(@react|@init|@signal|@whenever|@local|@global)\\b'
+    };
+    'action':{
+      'name':'meta.action.antescofo'
+      'comment': 'Antescofo Action'
+      'patterns': [
+        {
+          'include': '#actioninclude'
+        }
+        {
+          'include': '#actionkeyword'
+        }
+      ]
+    };
+    'argsinclude':{
+      'patterns': [
+        {
+          'include': '#whitespace'
+        }
+        {
+          'include': '#attribute'
+        }
+      ]
+    };
+    'argsname':{
+      'comment': 'arguments name'
+      'name': 'variable.parameter.antescofo'
+      'match': '\\$?[a-zA-Z0-9_]+'
+    };
+    'args':{
+        'name':'meta.argument.antescofo'
+        'patterns': [
+          {
+            'include': '#argsinclude'
+          }
+          {
+            'include': '#argsname'
+          }
+        ]
+    };
+}
+'patterns': [
+  {
+    'include': '#whitespace'
+  }
+  {
+    'name': 'keyword.control.antescofo'
+    'comment': 'Antescofo keyword in score'
+    'match': '(bpm|@transpose|@fermata|@hook|@inlet|@pizz|@staccato|fermata|hook|jump|pizz|@jump|pizzsection|rubato|staccato|transpose|variance)\\b'
+  }
+  {
+    'name': 'keyword.control.global.antescofo'
+    'comment': 'Antescofo global keyword'
+    'match': '@global\\b'
+  }
+  {
+    'name': 'keyword.control.insert.antescofo'
+    'comment': 'Antescofo insert keyword'
+    'match': '@insert\\b'
+  }
+  {
+    'name': 'meta.event.antescofo'
+    'comment': 'A suite of events (end)'
+    'begin': '(chord|CHORD|multi|MULTI|note|NOTE|event|EVENT|trill|TRILL)\\b'
+    'beginCaptures':
+      '0':
+        'name': 'keyword.control.event.antescofo'
+    'end': '(\\n)|(//(\\n|(.*[^\\\\]\\n)))|(;.*)\\n'
+    'endCaptures':
+      '0':
+        'name': 'comment.line.antescofo'
+    'patterns': [
+      {
+        'include': '#suitevent'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.function.antescofo'
+    'comment': 'Function declarations'
+    'begin': '(@fun_def)(\\s+)(\\@?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.declaration.antescofo'
+      '3':
+        'name': 'variable.other.function.antescofo'
+    'end': '(?=\\{)'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#args'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.macro.antescofo'
+    'comment': 'Macro declarations'
+    'begin': '(@macro_def)(\\s+)(\\@?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.declaration.antescofo'
+      '3':
+        'name': 'variable.other.name.macro.antescofo'
+    'end': '(?=\\{)'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#args'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.process.antescofo'
+    'comment': 'Process declarations'
+    'begin': '(@proc_def)(\\s+)((?:\\:\\:)?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.declaration.antescofo'
+      '3':
+        'name': 'variable.other.name.namespace.antescofo'
+    'end': '(?=\\{)'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#args'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.method.antescofo'
+    'comment': 'Method declarations'
+    'begin': '(@method_def)(\\s+)(\\@?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.declaration.antescofo'
+      '3':
+        'name': 'variable.other.method.antescofo'
+    'end': '(?=\\{)'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#args'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.object.antescofo'
+    'comment': 'Object declarations'
+    'begin': '(@obj_def)(\\s+)((?:obj\\:\\:)?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.declaration.antescofo'
+      '3':
+        'name': 'variable.other.object.antescofo'
+    'end': '(?=\\{)'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#args'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.pattern.antescofo'
+    'comment': 'Pattern declarations'
+    'begin': '(@pattern_def)(\\s+)((?:pattern\\:\\:)?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*\\{)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.declaration.antescofo'
+      '3':
+        'name': 'variable.other.pattern.antescofo'
+    'end': '[}\\]\\)]'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#action'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.track.antescofo'
+    'comment': 'Track declarations'
+    'begin': '(@track_def)(\\s+)((?:track\\:\\:)?[a-zA-Z_][a-zA-Z0-9_]*)(\\s*\\{)'
+    'beginCaptures':
+      '1':
+        'name': 'keyword.control.declaration.antescofo'
+      '3':
+        'name': 'variable.other.track.antescofo'
+    'end': '[}\\]\\)]'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#action'
+      }
+    ]
+  }
+  {
+    'name': 'meta.declaration.eval.antescofo'
+    'comment': 'Eval declarations'
+    'begin': '(@eval_when_load)(\\s*\\{)'
+    'beginCaptures':
+      '1':
+        'name': 'support.function.antescofo'
+    'end': '[}\\]\\)]'
+    'endCaptures':
+      '0':
+        'name': 'text'
+    'patterns': [
+      {
+        'include': '#action'
+      }
+    ]
+  }
+  {
+    'name': 'support.function.antescofo'
+    'comment': 'Antescofo declaration keyword'
+    'match': '(@dsp_channel|@dsp_cvar|@dsp_inlet|@dsp_link|@dsp_outlet)\\b'
+  }
+  {
+    'name': 'meta.action.actionsequence.antescofo'
+    'comment': 'Action sequence'
+    'begin': '[{\\[\\(]'
+    'beginCaptures':
+      '0':
+        'name': 'punctuation.antescofo'
+    'end': '[}\\]\\)]'
+    'endCaptures':
+      '0':
+        'name': 'punctuation.antescofo'
+    'patterns': [
+      {
+        'include': '#action'
+      }
+    ]
+  }
+  {
+    'comment': 'error'
+    'name': 'invalid.illegal'
+    'match': '[}]'
+  }
+  {
+    'include': '#atomic'
+  }
+]
